@@ -1,21 +1,21 @@
 /* this is a css style sheet, the syntax for a comment in CSS is different because it's a separate language to HTML */
 /* below I am calling all the different HTML elements that I have used in the page and describing how it should be rendered on screen within the {curly brackets}. */
 body {
-    background: black;
-    color: azure;
+    background: rgb(31, 186, 206);
+    color: rgb(213, 97, 19);
 }
 
 h1 {
-    color: aqua;
+    color: rgb(247, 234, 136);
     text-align: center;
 }
 
 h2 {
-    color: blueviolet;
+    color: rgb(226, 208, 43);
 }
 
 p {
-    color: chartreuse;
+    color: rgb(204, 100, 201);
 }
 
 footer {
