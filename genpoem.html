@@ -1,0 +1,179 @@
+<!DOCTYPE html> <!-- This announces to the machine that the file is written in HTML-->
+    
+    <!-- this is a HTML comment, its not displayed on the page but you can use it to leave notes for youself/inquisitive visitors.-->
+    <head> <!-- The head is where the page begins, here we give important instructons on how to display content contained on the page. -->
+        <link href="examplestyle.css" rel="stylesheet"> <!-- this links your HTML file to your style sheet, which gives instructions on how the page is displayed including; font, background, layout, favicon -->
+        <style>
+          #theimage{
+            background-image: url('theimage');
+            /*background-image: url(pic1.png);*/
+          }
+        </style>
+        <title>Poem generator example</title> <!-- The title of your page will display in the tab. -->
+    </head>
+<body id="theimage">
+  <div class="box2"> 
+        <p id="poem"><!-- inside here is where the poem will generate when you click the button -->
+        </p>
+  </div>
+  <div id="generatePoem"> 
+        <button class="poemgenbutton" onclick="myFunction()">Press for a Poem</button> <!-- this is the poem generator button-->
+  </div>
+</body>
+<footer> <!-- The footer is a the end of the page, it's totally optional and typically contains a note about the last update, or a dis on your sworn enemy.-->
+  <p style="text-align: right;">
+    Code based on <a href="https://codepen.io/cilavery/pen/LeVyxW">Cecilia Song Avery's Markov Chain Poem Generator</a><br>
+    See code comments for more details. <br> 
+    Made with love by [your name here] &lt;3 <br>
+    <a href="index.html">Return to Home</a>
+</p>
+</footer>
+<script> //within the script tag is the javascript code - this is where the poem is generated
+  //this is the background image randomiser
+    var images =[
+        "pic1.png",
+        "pic2.png",
+        "pic3.png",
+        
+    ]
+    var which = Math.floor(Math.random()* images.length);
+    var img = document.getElementById('theimage');
+    img.src = images[which];
+    img.title = images[which];
+
+
+  var newText = [//the text below is what the poem will be generated from
+        "You helped me boil eggs",
+        "How do you look sexy with a baby prop",
+        "How do I start expanding the horizons of life? ", 
+        "I feel the same way ", 
+        "Hey buddy ", 
+        "what do you do once the eggs are boiled ", 
+        "you want to watch One Piece but it’s like 900 episodes long ", 
+        "What happened? ", 
+        "I’ve realised you have always been this way ", 
+        "A lot of those things happen with age to ", 
+        "they duped Kanye  ", 
+        "It is all of the things ", 
+        "Simple question, simple answer ", 
+        "You always have their undivided attention ", 
+        "Aaaaaand this one's hitting close to home", 
+        "I still can't even tell if my wife likes me ", 
+        "Any day you’re not dead is a good one ", 
+        "in three days ", 
+        "Life is a marathon not a sprint ", 
+        "Randomly vomiting in front of them always works in the movies ", 
+        "I’m sorry ", 
+        "Wut's your secret  ", 
+        "If you could go back in time ", 
+        "what good are you going to get out of these answers ", 
+        "you were searching for something that wasn’t  ", 
+        "I hope karma pays you a visit  ", 
+        "If you know who I am  ", 
+        "I hate bedrock realms for their shit render distance ", 
+        "I don't believe in bitcoin  ", 
+        "You seemed very patient  ", 
+        "she has a male friend ", 
+        "You basically lied to me ",  
+        "you can't call someone like a brother", 
+        "They kept it from you for a reason ", 
+        "that’s always an uncomfortable conversation  ", 
+        "huge red flag ", 
+        "It won't get better over time ", 
+        "move on ", 
+        "I have nothing to say  ", 
+        "I’m on his private story  ", 
+        "you miss vine ", 
+        "Have you filled your void? ", 
+        "Got me thinking  ", 
+        "I'm well groomed  ", 
+        "My calves are my best feature  ", 
+        "Discrete connection  ", 
+        "Maybe it was you ",  
+        "Tell me our passions  ", 
+        "Are you team Kendrick or team drake  ", 
+        "Looking for genuine connection  ", 
+        "I want to feel loved  ", 
+        "I had zero mentoring from my parents growing up  ", 
+        "I’ve got $25 to burn, what do I buy? ",]
+
+  var arrayOfWords = newText;//parseText(text); 
+  var wordPairsObj = generateWordPairs(arrayOfWords);
+  var lines = 3; // change this variable to define the poem will be X lines long eg lines = x
+  var phrase = 1; // change this variable to change how many "phrases" will be contained on each line
+
+  function myFunction() {
+      document.getElementById('poem').innerHTML = generatePoem(newText,lines,phrase);
+  }
+
+  function generatePoem(newText, poemLines, wordlength) {
+    var line = "";  
+      if (wordlength === undefined) {
+        wordlength = Math.floor(Math.random() * 4);
+    }
+  var i = 1;
+    while (i <= poemLines) {
+      line += writeLine(wordPairsObj, wordlength) + '<br>';
+      i++;
+    }
+    return line;
+}
+
+//function parseText(str) {
+  // str.split('x') announces what symbol will be used to split the text into 'phrases'
+  //you could instead change this from comma ',' to ' ' spaces and then use the computer to construct the poem word by word.
+  //var textArr = str.split(',') ;
+  //var newText = [];
+  //for (var i = 0; i < textArr.length; i++) {
+  //  var element = textArr[i];
+  //  newText = newText.concat(element);
+  //}
+  //return newText;
+//}
+
+//creates Markov Chain Object:
+function generateWordPairs(arr) {
+  var textObj = {};
+  
+  for (var i = 0; i < arr.length-1; i++) {
+    var key = arr[i];
+    if (!textObj[key]) {
+      textObj[key] = [arr[i + 1]];
+    } 
+    else {
+      textObj[key].push(arr[i+1]);
+    }
+  }
+ return textObj;
+}
+
+//returns a random word:
+function writeLineHelper(arrayOfWords) {
+  var randomIndex = Math.floor(Math.random() * arrayOfWords.length)
+  return arrayOfWords[randomIndex]
+}
+
+//write a single line of random words from parsed text
+function writeLine(chainObj, lengthOfWords) {
+  var poemLine = [];
+  var pickAWord = chainObj[writeLineHelper(arrayOfWords)];
+ 
+  if (lengthOfWords === 0) {
+    return poemLine;
+  } 
+  else if (pickAWord !== undefined && pickAWord.length === 1) {
+    return poemLine += pickAWord + ' ' + writeLine(chainObj, lengthOfWords-1);
+  } 
+  
+  else if (pickAWord !== undefined && pickAWord.length > 1) {
+    var idx = Math.floor(Math.random() * pickAWord.length);
+      if (pickAWord[idx] !== undefined) {
+        return poemLine += pickAWord[idx] + ' ' + writeLine(chainObj, lengthOfWords-1);
+      }
+  }
+  else if (pickAWord === undefined) {
+    return poemLine += writeLine(chainObj, lengthOfWords);
+  }
+  return poemLine;
+}
+</script>

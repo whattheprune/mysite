@@ -1,0 +1,85 @@
+/* this is a css style sheet, the syntax for a comment in CSS is different because it's a separate language to HTML */
+/* below I am calling all the different HTML elements that I have used in the page and describing how it should be rendered on screen within the {curly brackets}. */
+body {
+    color: azure;
+    background-image: url("theimage");
+}
+h1 { /* text swap */
+    color: aqua;
+    text-align: center;
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 300;
+}
+p { /* poem generator and text swap */
+    color: chartreuse;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: small;
+}
+footer {
+    position: fixed; bottom: 0em;
+}
+.body-wrapper{
+    margin: 20px;
+    border-style: double;
+    border-color: cornflowerblue;
+    padding: 20px;
+    width: auto;
+    height: auto;
+    /*background-image: url(assets/welcomebutterf.gif);*/
+}
+.box1 { /* image position */
+    margin: 1em;
+    border: thick double hotpink;
+    padding: 1em;
+    width: inherit;
+    height: auto;
+}
+.pics { /* image position */
+    position: relative;
+    width: inherit;
+    height: 1000px;
+}
+.swapbutton { /* poem generator and text swap */
+    border-style: none;
+    color: chartreuse;
+    background-color: black;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: small;
+}
+.swapbuttonheading {
+    border-style: none;
+    background-color: black;
+    color: aqua;
+    text-align: center;
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 300;
+}
+.poemgenbutton { /* poem generator and text swap */
+    border-style: solid;
+    border-color: lightcoral;
+    color: chartreuse;
+    background-color: black;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: small;
+    display: block; /* center the button */
+    margin: auto; /* center the button */
+}
+footer {
+    position: fixed; bottom: 0em; right: 2%;
+    margin-top: 2em;
+    margin-bottom: 0em;
+    text-align: right;
+}
+#poem {
+    padding-top: 10%;
+}
+.box2 {
+    min-height: 300px;
+    margin-left: 20%;
+    margin-right: 20%;
+    text-align: center;
+    font-size: 2em;
+    line-height: 1.5em;
+  }

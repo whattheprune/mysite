@@ -1,21 +1,22 @@
 /* this is a css style sheet, the syntax for a comment in CSS is different because it's a separate language to HTML */
 /* below I am calling all the different HTML elements that I have used in the page and describing how it should be rendered on screen within the {curly brackets}. */
 body {
-    background: rgb(31, 186, 206);
+    background: rgb(254, 255, 255);
     color: rgb(213, 97, 19);
 }
 
 h1 {
-    color: rgb(247, 234, 136);
+    color: rgb(11, 11, 10);
     text-align: center;
 }
 
 h2 {
-    color: rgb(226, 208, 43);
+    color: rgb(243, 242, 239);
 }
 
 p {
-    color: rgb(204, 100, 201);
+    color: rgb(0, 0, 0);
+    font-size: 2em;
 }
 
 footer {
@@ -24,10 +25,32 @@ footer {
 
 /* to call a class put a . before its name */
 .newacronym{
-    color: aquamarine;
+    color: rgb(255, 255, 255);
 }
 
 .box1 {
     border: thick double hotpink;
     padding: 1em;
+}
+.body-wrapper{
+    margin: 20px;
+    border-style: double;
+    border-color: rgb(1, 5, 12);
+    padding-left: 100px;
+    padding-right: 100px;
+    width: auto;
+    height: auto;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    /*background-image: url(assets/welcomebutterf.gif);*/
+}
+.showerlink {
+    a:visited {
+   color:rgb(225, 123, 98); }
+   a:link {
+
+   }
+   a:hover { 
+    color:rgb(223, 74, 37);
+
+   }
 }
