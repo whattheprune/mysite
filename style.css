@@ -1,8 +1,17 @@
 /* this is a css style sheet, the syntax for a comment in CSS is different because it's a separate language to HTML */
 /* below I am calling all the different HTML elements that I have used in the page and describing how it should be rendered on screen within the {curly brackets}. */
+
+html {
+    height: 100vh;
+    width:1000px;
+}
+
 body {
-    background: rgb(254, 255, 255);
+    /*background: rgb(254, 255, 255);*/
     color: rgb(213, 97, 19);
+    /* width: 100%; */
+    max-width: 900px;
+    /* height: 100%; */
 }
 
 h1 {
@@ -10,47 +19,40 @@ h1 {
     text-align: center;
 }
 
-h2 {
-    color: rgb(243, 242, 239);
-}
-
 p {
     color: rgb(0, 0, 0);
     font-size: 2em;
+    /* text-align: justify; */
 }
 
-footer {
-    position: fixed; bottom: 0em;
-}
-
-/* to call a class put a . before its name */
-.newacronym{
-    color: rgb(255, 255, 255);
-}
-
-.box1 {
-    border: thick double hotpink;
-    padding: 1em;
-}
 .body-wrapper{
+    color: rgb(0, 0, 0);
+    font-size: 2em;
+    text-align: justify;
+    position: relative;
     margin: 20px;
-    border-style: double;
-    border-color: rgb(1, 5, 12);
     padding-left: 100px;
     padding-right: 100px;
-    width: auto;
-    height: auto;
+    /* width: 100%;
+    height: 100%; */
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    /*background-image: url(assets/welcomebutterf.gif);*/
 }
-.showerlink {
-    a:visited {
-   color:rgb(225, 123, 98); }
-   a:link {
+
+marquee {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: justify;
+}
+
+.showerlink a:visited {
+        color:rgb(225, 123, 98); 
+    }
+.showerlink a:link {
+    color: white;
 
    }
-   a:hover { 
+.showerlink a:hover { 
     color:rgb(223, 74, 37);
 
    }
-}
