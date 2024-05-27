@@ -19,6 +19,7 @@ The index.html file is typically the landing page for a website on github pages 
    
 </head>
 <body> <!-- The body contains the majority of the content on the page, the bulk of your text, images, links, elements will all be located in here.-->
+    <audio id="audio-file" src="assets/ss.mp3" autoplay></audio>
     <div class="body-wrapper">
          <!-- <p> stands for paragraph, this indicates a block of text in a small text size. This is a block type element -->
             <br>
@@ -98,4 +99,15 @@ The index.html file is typically the landing page for a website on github pages 
 
 <script>
     ChangeIt();
+
+    document.addEventListener('load', function() {
+    let audioFile = document.getElementById("audio-file");
+
+    function playAudio() {
+        audioFile.play();
+    }
+
+    playAudio();
+});
+
 </script>
